@@ -27,6 +27,9 @@ client.on("message", msg => {
     if (q=="Kieran October "){
       msg.channel.send("https://scontent.flhr1-1.fna.fbcdn.net/v/t31.0-8/18358937_1538929776117187_2983952100613780840_o.jpg?_nc_cat=100&_nc_sid=09cbfe&_nc_ohc=15b85MF2NSEAX-g4ZGo&_nc_ht=scontent.flhr1-1.fna&oh=e861d46bf3f04d73be09c77ec3d32fdf&oe=5F6AD281")
     }
+    else if (q=="Matthew Hodges "){
+      msg.channel.send("https://pbs.twimg.com/profile_images/1268079021734019073/G2Iht4Wp_400x400.jpg")
+    }
     else{
       // Send request to google images with query
       googleImages.search(q)
