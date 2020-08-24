@@ -10,9 +10,8 @@ client.on("ready", () => {
 })
 
 client.on("message", msg => {
+  // Get image search arguments for the query
   if (msg.content.startsWith(".image")) {
-
-    // Get image search arguments for the query
     const args = msg.content.slice(".image".length).trim().split(' ')
     var q = '';
     args.forEach(element => {
@@ -25,8 +24,12 @@ client.on("message", msg => {
     .then(images => { 
         msg.channel.send(images[Math.floor(Math.random() * images.length)].url);
     });
-
   }
+
+  if (msg.client.startsWith(".yt")){
+    msg.channel.send("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
+  }
+
 })
 
 client.login(process.env.BOT_TOKEN)
