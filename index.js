@@ -41,10 +41,11 @@ client.on("message", msg => {
     });
     console.log("Youtube search: " + q)
 
-    youtube.search.list({part:'id,snippet'}, {q: q, maxResults: 10})
+    youtube.search.list({part:"id,snippet",q: q, maxResults: 1,type:"video"})
     .then( result =>{
-        console.log("Youtuibe video ID: " + result.data.items[1].id.videoId)
-        msg.channel.send("https://www.youtube.com/watch?v=" + result.data.items[1].id.videoId)
+        console.log(result.data.items[0])
+        console.log("Youtuibe video ID: " + result.data.items[0].id.videoId)
+        msg.channel.send("https://www.youtube.com/watch?v=" + result.data.items[0].id.videoId)
       }
     )
   }
