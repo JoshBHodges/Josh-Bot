@@ -17,7 +17,7 @@ client.on("message", msg => {
     args.forEach(element => {
         q += element + ' '
     });
-    console.log(q)
+    console.log("Image search: " + q)
 
     // Send request to google images with query
     googleImages.search(q)
@@ -26,7 +26,7 @@ client.on("message", msg => {
     });
   }
 
-  if (msg.client.startsWith(".yt")){
+  if (msg.content.startsWith(".yt")){
     msg.channel.send("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
   }
 
