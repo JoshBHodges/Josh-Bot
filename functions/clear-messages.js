@@ -2,7 +2,7 @@ module.exports = {
     clearMessages: function (msg){
         // Get arguments after the command
         const args = msg.content.slice("?clear".length).trim().split(' ')
-        var amount = args.join(' ')
+        var amount = args.join(' ') + 1 
         console.log("Clear " + amount + " messages")
 
         // Check it is a number
@@ -14,7 +14,7 @@ module.exports = {
         if (amount < 1) return msg.reply('You have to delete at least 1 message!');
 
         // Remove messages
-        msg.channel.messages.fetch({ limit: amount + 1 }).then(messages => { 
+        msg.channel.messages.fetch({ limit: amount }).then(messages => { 
             msg.channel.bulkDelete(messages)
         });
     }
