@@ -3,7 +3,6 @@ module.exports = {
         // Get arguments after the command
         const args = msg.content.slice("?clear".length).trim().split(' ')
         var amount = args.join(' ')
-        amount += 1 
         console.log("Clear " + amount + " messages")
 
         // Check it is a number
@@ -11,7 +10,7 @@ module.exports = {
         if (isNaN(amount)) return msg.reply('The amount parameter isn`t a number!');
 
         // Check it is within constraints
-        if (amount > 99) return msg.reply('You can`t delete more than 99 messages at once!');
+        if (amount > 100) return msg.reply('You can`t delete more than 100 messages at once!');
         if (amount < 1) return msg.reply('You have to delete at least 1 message!');
 
         // Remove messages
