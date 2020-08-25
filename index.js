@@ -17,8 +17,8 @@ client.on("ready", () => {
 
 client.on("message", msg => {
   // Get image search arguments for the query
-  if (msg.content.startsWith(".image")) {
-    const args = msg.content.slice(".image".length).trim().split(' ')
+  if (msg.content.startsWith("?image")) {
+    const args = msg.content.slice("?image".length).trim().split(' ')
     var q = '';
     args.forEach(element => {
         q += element + ' '
@@ -42,9 +42,9 @@ client.on("message", msg => {
     }
   }
 
-  else if (msg.content.startsWith(".yt")){
+  else if (msg.content.startsWith("?yt")){
     // Get arguments
-    const args = msg.content.slice(".yt".length).trim().split(' ')
+    const args = msg.content.slice("?yt".length).trim().split(' ')
     var q = '';
     args.forEach(element => {
         q += element + ' '
