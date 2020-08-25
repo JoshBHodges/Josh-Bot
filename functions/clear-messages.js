@@ -2,7 +2,8 @@ module.exports = {
     clearMessages: function (msg){
         // Get arguments after the command
         const args = msg.content.slice("?clear".length).trim().split(' ')
-        var amount = args.join(' ') + 1 
+        var amount = args.join(' ')
+        amount += 1 
         console.log("Clear " + amount + " messages")
 
         // Check it is a number
