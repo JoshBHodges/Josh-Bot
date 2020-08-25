@@ -19,10 +19,7 @@ client.on("message", msg => {
   // Get image search arguments for the query
   if (msg.content.startsWith("?image")) {
     const args = msg.content.slice("?image".length).trim().split(' ')
-    var q = '';
-    args.forEach(element => {
-        q += element + ' '
-    });
+    var q = args.join(' ')
     console.log("Image search: " + q)
     if (q=="Kieran October "||q=="kieran october"){
       msg.channel.send("https://scontent.flhr1-1.fna.fbcdn.net/v/t31.0-8/18358937_1538929776117187_2983952100613780840_o.jpg?_nc_cat=100&_nc_sid=09cbfe&_nc_ohc=15b85MF2NSEAX-g4ZGo&_nc_ht=scontent.flhr1-1.fna&oh=e861d46bf3f04d73be09c77ec3d32fdf&oe=5F6AD281")
@@ -45,12 +42,8 @@ client.on("message", msg => {
   else if (msg.content.startsWith("?yt")){
     // Get arguments
     const args = msg.content.slice("?yt".length).trim().split(' ')
-    var q = '';
-    args.forEach(element => {
-        q += element + ' '
-    });
+    var q = args.join(' ')
     console.log("Youtube search: " + q)
-
     youtube.search.list({part:"id,snippet",q: q, maxResults: 1,type:"video"})
     .then( result =>{
         console.log(result.data.items[0])
