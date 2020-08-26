@@ -11,6 +11,12 @@ client.on("ready", () => {
   console.log(`Logged in as ${client.user.tag}!`)
 })
 
+client.on("guildMemberAdd",(member) => {
+  member.send(
+      '**Welcome to our server!:video_game: Please read the rules before joining any text or voice channels.**'
+  )
+});
+
 client.on("message", msg => {
   if (msg.content.startsWith("?image")) {
     imageSearch.getImage(msg)
