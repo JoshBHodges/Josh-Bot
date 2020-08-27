@@ -27,13 +27,13 @@ bot.on("message", msg => {
 
     switch (command) {
       case 'image':
-        imageSearch.getImage(msg)
+        imageSearch.getImage(msg,params)
         break;
       case 'yt':
-        ytSearch.getVideo(msg)
+        ytSearch.getVideo(msg,params)
         break;
       case 'clear':
-        clear.clearMessages(msg)
+        clear.clearMessages(msg,params)
         break;
       case 'help':
         help.help(msg)
