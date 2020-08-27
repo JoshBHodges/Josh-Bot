@@ -6,6 +6,7 @@ const client = new Client()
 var imageSearch = require('./functions/image-search')
 var ytSearch = require('./functions/yt-search')
 var clear = require('./functions/clear-messages')
+var help = require('./functions/help')
 
 client.on("ready", () => {
   console.log(`Logged in as ${client.user.tag}!`)
@@ -27,6 +28,10 @@ client.on("message", msg => {
   else if (msg.content.startsWith("?clear")){
     clear.clearMessages(msg)
   }
+  else if (msg.content.startsWith("?help")){
+    help.help(msg)
+  }
+  
 })
 
 client.login(process.env.BOT_TOKEN)
