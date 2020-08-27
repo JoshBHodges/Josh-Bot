@@ -6,3 +6,4 @@ Accepts command as :
   - ?image "search query"
   - ?yt "search query"
   - ?clear "number of messages to clear"
+  - ?help

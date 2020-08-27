@@ -23,7 +23,7 @@ module.exports = {
             // Send request to google images with query
             googleImages.search(q)
             .then(images => { 
-                msg.channel.send(images[Math.floor(Math.random() * images.length)].url);
+                msg.channel.send(images[0].url);
             });
         }
     }

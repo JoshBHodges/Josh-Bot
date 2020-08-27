@@ -1,24 +1,24 @@
 require("dotenv").config()
 
 const { Client } = require("discord.js");
-const client = new Client()
+const bot = new Client()
 
 var imageSearch = require('./functions/image-search')
 var ytSearch = require('./functions/yt-search')
 var clear = require('./functions/clear-messages')
 var help = require('./functions/help')
 
-client.on("ready", () => {
-  console.log(`Logged in as ${client.user.tag}!`)
+bot.on("ready", () => {
+  console.log(`Logged in as ${bot.user.tag}!`)
 })
 
-client.on("guildMemberAdd",(member) => {
+bot.on("guildMemberAdd",(member) => {
   member.send(
       '**Welcome to our server!:video_game: Please read the rules before joining any text or voice channels.**'
   )
 });
 
-client.on("message", msg => {
+bot.on("message", msg => {
   if (msg.content.startsWith("?image")) {
     imageSearch.getImage(msg)
   }
@@ -34,4 +34,4 @@ client.on("message", msg => {
   
 })
 
-client.login(process.env.BOT_TOKEN)
+bot.login(process.env.BOT_TOKEN)
