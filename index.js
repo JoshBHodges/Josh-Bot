@@ -30,22 +30,45 @@ bot.on("message", msg => {
       case 'image':
         imageSearch.getImage(msg,params)
         break;
+
       case 'yt':
         ytSearch.getVideo(params).then(result =>{
             msg.channel.send(result)
           }
         )
         break;
+
       case 'clear':
         clear.clearMessages(msg,params)
         break;
+
       case 'help':
         help.help(msg)
         break;
+
       case 'music':
+        let command2 = params.split(" ")[0]
+        switch (command2) {
+          case 'play':
+            ytSearch.getVideo(params.substring(command2.length)).then(result =>{
+                music.play(msg,result)
+              }
+            )
+            
+            break;
         
+          case 'next':
+            
+            break;
+          
+          default:
+            msg.reply('**That is not a valid music command!**')
+            break;
+        }
         break;
+
       default:
+        msg.reply("**That is not a valid command!**")
         break;
     }
   }
