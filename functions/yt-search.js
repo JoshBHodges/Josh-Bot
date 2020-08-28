@@ -11,7 +11,6 @@ module.exports = {
             }
             video = ytsr(params,options)
             .then(result=>{
-                console.log("Youtube video: " + result.items[0].link);
                 return(result.items[0].link)
             })
             return video

@@ -58,7 +58,7 @@ bot.on("message", msg => {
             break;
         
           case 'next':
-            
+            music.next(msg)
             break;
           
           case 'stop':
