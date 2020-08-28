@@ -36,7 +36,7 @@ module.exports = {
 
         var server = servers[msg.guild.id]
         server.queue.push(song)
-        msg.channel.reply(song + " Added to the queue!")
+        msg.reply(song + " Added to the queue!")
 
         if(bot.voice.connections.size<1){ 
             msg.member.voice.channel.join()
