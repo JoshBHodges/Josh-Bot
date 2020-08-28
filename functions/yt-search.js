@@ -5,13 +5,14 @@ const youtube = google.youtube({
 })
 
 module.exports = {
-    getVideo: function(msg,params){
+    getVideo: async function(params){
         // Send the request to Google API
-        youtube.search.list({part:"id,snippet",q: params, maxResults: 1,type:"video"})
+        var p = youtube.search.list({part:"id,snippet",q: params, maxResults: 1,type:"video"})
         .then( result =>{
                 console.log("Youtuibe video ID: " + result.data.items[0].id.videoId)
-                msg.channel.send("https://www.youtube.com/watch?v=" + result.data.items[0].id.videoId)
+                return ("https://www.youtube.com/watch?v=" + result.data.items[0].id.videoId)
             }
         )
+        return p
     }
 }

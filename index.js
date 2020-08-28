@@ -8,6 +8,7 @@ var imageSearch = require('./functions/image-search')
 var ytSearch = require('./functions/yt-search')
 var clear = require('./functions/clear-messages')
 var help = require('./functions/help')
+var music = require('./functions/music')
 
 bot.on("ready", () => {
   console.log(`Logged in as ${bot.user.tag}!`)
@@ -30,13 +31,19 @@ bot.on("message", msg => {
         imageSearch.getImage(msg,params)
         break;
       case 'yt':
-        ytSearch.getVideo(msg,params)
+        ytSearch.getVideo(params).then(result =>{
+            msg.channel.send(result)
+          }
+        )
         break;
       case 'clear':
         clear.clearMessages(msg,params)
         break;
       case 'help':
         help.help(msg)
+        break;
+      case 'music':
+        
         break;
       default:
         break;
