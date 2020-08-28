@@ -1,19 +1,17 @@
 var ytdl = require('ytdl-core');
-const { Message } = require('discord.js');
 
 var servers = {};
 
 module.exports = {
 
-    play: function(msg,song){
+    play: function(bot,msg,song){
 
         function playSong(connection,msg){
             var server = servers[msg.guild.id]
 
-            server.dispatcher = connection.play(ytdl(server.queue[0], {filter: 'audioonly'}))
-            // server.queue.shift()
+            server.dispatcher = connection.play(ytdl(server.queue[0], {filter: 'audioonly', volume: 0.3}))
+            server.queue.shift()
             server.dispatcher.on('finish',()=>{
-                server.queue.shift()
                 if(server.queue[0]){
                     playSong(connection,msg)
                 }
@@ -38,10 +36,9 @@ module.exports = {
 
         var server = servers[msg.guild.id]
         server.queue.push(song)
+        msg.channel.reply(song + " Added to the queue!")
 
-        console.log(server.queue)
-
-        if(!msg.member.voice.connection){ 
+        if(bot.voice.connections.size<1){ 
             msg.member.voice.channel.join()
             .then(connection =>{
                 playSong(connection,msg)
@@ -54,7 +51,7 @@ module.exports = {
         if(server.dispatcher){
             server.dispatcher.end()
         }
-
+        msg.channel.send('**Skipping Song**')
     },
     stop: function(msg){
         var server = servers[msg.guild.id]
@@ -62,7 +59,7 @@ module.exports = {
             for(var i = server.queue.length -1; i >=0; i--){
                 server.queue.splice(i,1)
             }
-
+            msg.channel.send('**Ending the Queue, Leaving the voice channel**')
             server.dispatcher.end();
         }
         if(msg.guild.connection){

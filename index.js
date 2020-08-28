@@ -51,10 +51,9 @@ bot.on("message", msg => {
         switch (command2) {
           case 'play':
             ytSearch.getVideo(params.substring(command2.length)).then(result =>{
-                music.play(msg,result)
+                music.play(bot,msg,result)
               }
             )
-            
             break;
         
           case 'next':
@@ -62,12 +61,13 @@ bot.on("message", msg => {
             break;
           
           case 'stop':
-
+            music.stop(msg)
             break;
 
           default:
             msg.reply('**That is not a valid music command!**')
             break;
+            
         }
         break;
 
