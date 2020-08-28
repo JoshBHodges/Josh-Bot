@@ -49,5 +49,13 @@ module.exports = {
 
     next: function(){
 
+        var server = servers[msg.guild.id]
+        if(server.dispatcher){
+            server.dispatcher.end()
+        }
+
+    },
+    stop: function(){
+
     },
 }

@@ -61,6 +61,10 @@ bot.on("message", msg => {
             
             break;
           
+          case 'stop':
+
+            break;
+
           default:
             msg.reply('**That is not a valid music command!**')
             break;
