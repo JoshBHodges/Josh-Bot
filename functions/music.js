@@ -13,7 +13,7 @@ module.exports = {
             
             bot.user.setPresence({
                     activity:{
-                        name: 'Playing : ' + server.queue[0].title,
+                        name: server.queue[0].title,
                         type: 0
                     }
                 })
