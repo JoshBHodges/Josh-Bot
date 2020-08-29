@@ -33,7 +33,8 @@ bot.on("message", msg => {
 
       case 'yt':
         ytSearch.getVideo(params).then(result =>{
-            msg.channel.send(result)
+          console.log(result)
+            msg.channel.send(result.link)
           }
         )
         break;

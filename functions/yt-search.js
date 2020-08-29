@@ -11,7 +11,7 @@ module.exports = {
             }
             video = ytsr(params,options)
             .then(result=>{
-                return(result.items[0].link)
+                return(result.items[0])
             })
             return video
         })
