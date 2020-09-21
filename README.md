@@ -1,5 +1,5 @@
 # Kieran-Bot
-Multi function Bot for discord servers
+Multi function Bot for discord servers hosted private using docker
 
 Accepts command as :
 
