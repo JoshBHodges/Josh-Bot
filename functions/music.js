@@ -61,6 +61,7 @@ module.exports = {
         }
         msg.channel.send('**Skipping Song**')
     },
+
     stop: function(msg){
         var server = servers[msg.guild.id]
         if(msg.guild.voice.connection){
@@ -73,5 +74,10 @@ module.exports = {
         if(msg.guild.connection){
             msg.guild.voice.connection.disconnect()
         }
+    },
+
+    queue: function(msg){
+        var server = servers[msg.guild.id]
+        msg.channel.send(server.queue)
     },
 }
