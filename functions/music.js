@@ -86,7 +86,7 @@ module.exports = {
         var server = servers[msg.guild.id]
         var songlist = '';
         server.queue.forEach(song => {
-            songlist = songlist.concat(songlist,song.title,'\n')
+            songlist = songlist.concat(song.title,'\n')
         });
         
         if(!songlist){
