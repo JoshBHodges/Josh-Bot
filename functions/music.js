@@ -1,3 +1,4 @@
+const { concat } = require('ffmpeg-static');
 var ytdl = require('ytdl-core');
 
 var servers = {};
@@ -77,7 +78,21 @@ module.exports = {
     },
 
     queue: function(msg){
+        if(!msg.member.voice.channel){
+            msg.reply('\n**There needs to be music playing to see the queue**')
+            return;
+        }
+
         var server = servers[msg.guild.id]
-        msg.channel.send(server.queue)
+        var songlist = '';
+        server.queue.forEach(song => {
+            songlist = songlist.concat(songlist,song.title,'\n')
+        });
+        
+        if(!songlist){
+            msg.reply('\n**No songs left in queue**')
+            return;
+        }
+        msg.reply('\n' + songlist)
     },
 }
