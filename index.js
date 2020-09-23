@@ -64,6 +64,11 @@ bot.on("message", msg => {
           case 'stop':
             music.stop(msg)
             break;
+          
+          case 'queue':
+            music.queue(msg)
+            break;
+  
 
           default:
             msg.reply('**That is not a valid music command!**')
