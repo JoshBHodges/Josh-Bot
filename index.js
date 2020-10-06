@@ -47,34 +47,34 @@ bot.on("message", msg => {
         help.help(msg)
         break;
 
-      case 'music':
-        let command2 = params.split(" ")[0]
-        switch (command2) {
-          case 'play':
-            ytSearch.getVideo(params.substring(command2.length)).then(result =>{
-                music.play(bot,msg,result)
-              }
-            )
-            break;
+      // case 'music':
+      //   let command2 = params.split(" ")[0]
+      //   switch (command2) {
+      //     case 'play':
+      //       ytSearch.getVideo(params.substring(command2.length)).then(result =>{
+      //           music.play(bot,msg,result)
+      //         }
+      //       )
+      //       break;
         
-          case 'next':
-            music.next(msg)
-            break;
+      //     case 'next':
+      //       music.next(msg)
+      //       break;
           
-          case 'stop':
-            music.stop(msg)
-            break;
+      //     case 'stop':
+      //       music.stop(msg)
+      //       break;
           
-          case 'queue':
-            music.queue(msg)
-            break;
+      //     case 'queue':
+      //       music.queue(msg)
+      //       break;
   
 
-          default:
-            msg.reply('**That is not a valid music command!**')
-            break;
+      //     default:
+      //       msg.reply('**That is not a valid music command!**')
+      //       break;
             
-        }
+      //   }
         break;
 
       default:
